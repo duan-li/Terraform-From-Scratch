@@ -1,0 +1,11 @@
+version: '3.1'
+services: # cans run worklog post
+  tf:
+    image: hashicorp/terraform
+    container_name: terraform
+    entrypoint:
+      - terraform
+    command: "version"
+    working_dir: "/root/.terraform.d"
+    volumes:
+      - ./:/root/.terraform.d
