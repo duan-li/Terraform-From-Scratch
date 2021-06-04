@@ -1,7 +1,10 @@
 version: '3.1'
 services: # cans run worklog post
   tf:
-    image: hashicorp/terraform
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: local-tf
     container_name: terraform
     entrypoint:
       - terraform
@@ -9,3 +12,27 @@ services: # cans run worklog post
     working_dir: "/root/.terraform.d"
     volumes:
       - ./:/root/.terraform.d
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./.aws:/root/.aws
+    # environment:
+    #  - AWS_PROFILE=tf
+    #  - AWS_SHARED_CREDENTIALS_FILE="/root/.aws/credentials"
+      # - AWS_SDK_LOAD_CONFIG=1
+      # - AWS_ACCESS_KEY_ID="AKIA3Q2TTPQM7GJOU45R"
+      # - AWS_SECRET_ACCESS_KEY="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"
+      # - AWS_DEFAULT_REGION="ap-southeast-2"
+      # - AWS_DEFAULT_REGION="us-west-2"
+
+
+  aws:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: local-tf
+    container_name: aws
+    entrypoint:
+      - aws
+    command: "help"
+    working_dir: "/root/.aws"
+    volumes:
+      - ./.aws:/root/.aws
