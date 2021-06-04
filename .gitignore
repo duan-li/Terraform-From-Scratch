@@ -2,6 +2,13 @@
 .terraform/*
 .terraform.lock.hcl
 checkpoint_*
+terraform.tfstate*
 .aws
 .aws/*
-terraform.tfstate*
+*/.terraform
+*/.terraform/*
+*/.terraform.lock.hcl
+*/checkpoint_*
+*/terraform.tfstate*
+
+

@@ -21,3 +21,7 @@
 7. run `terraform apply` to apply
 8. run `terraform destroy`
 
+
+## Module
+
+Useing `-auto-approve` skip interactive approval of applying.
