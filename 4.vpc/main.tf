@@ -21,6 +21,12 @@ provider "aws" {
 }
 
 
+
+################################
+## VPC
+################################
+
+
 resource "aws_vpc" "my_vpc" {
   cidr_block = "172.16.0.0/16"
 
@@ -48,6 +54,11 @@ resource "aws_network_interface" "foo" {
   }
 }
 
+
+################################
+## EC2
+################################
+
 resource "aws_instance" "foo" {
   ami           = "ami-005e54dee72cc1d00" # us-west-2
   instance_type = "t2.micro"
@@ -56,6 +67,7 @@ resource "aws_instance" "foo" {
     network_interface_id = aws_network_interface.foo.id
     device_index         = 0
   }
-
-  
 }
+
+
+
