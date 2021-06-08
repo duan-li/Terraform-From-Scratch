@@ -23,8 +23,15 @@ provider "aws" {
 variable "stack_name" {}
 variable "vpc_id" {}
 
+
 module "vpc" {
   source           = "./modules/vpc"
+  stack_name = "${var.stack_name}"
+}
+
+module "network" {
+  source           = "./modules/network"
+  vpc_id           = "${module.vpc.vpc_id}"
   stack_name = "${var.stack_name}"
 }
 
@@ -32,6 +39,6 @@ module "ec2" {
   source           = "./modules/ec2"
   stack_name       = "${var.stack_name}"
   vpc_id           = "${module.vpc.vpc_id}"
-  network_interface_id = "${module.vpc.network_interface_id}"
+  network_interface_id = "${module.network.network_interface_id}"
 }
 
