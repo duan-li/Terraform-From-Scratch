@@ -35,6 +35,3 @@ Useing `-auto-approve` skip interactive approval of applying.
 * [li0nel/laravel-terraform](https://github.com/li0nel/laravel-terraform/tree/master/terraform)
 * [rossedman/aws-terraform-laravel Archived](https://github.com/rossedman/aws-terraform-laravel/blob/master/terraform/modules/autoscaling/main.tf)
 * [hashicorp/aws documents](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-* []()
-* []()
-* []()
