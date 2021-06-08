@@ -10,5 +10,7 @@ terraform.tfstate*
 */.terraform.lock.hcl
 */checkpoint_*
 */terraform.tfstate*
+.DS_Store
+*/.DS_Store
 
 
