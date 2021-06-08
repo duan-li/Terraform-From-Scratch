@@ -9,11 +9,13 @@ services: # cans run worklog post
     entrypoint:
       - terraform
     command: "version"
-    working_dir: "/root/.terraform.d"
+    working_dir: "/root/.terraform.d/4.vpc"
     volumes:
       - ./:/root/.terraform.d
       - /var/run/docker.sock:/var/run/docker.sock
       - ./.aws:/root/.aws
+      - ./.tmp:/tmp
+
     # environment:
     #  - AWS_PROFILE=tf
     #  - AWS_SHARED_CREDENTIALS_FILE="/root/.aws/credentials"

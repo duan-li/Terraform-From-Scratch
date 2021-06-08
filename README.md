@@ -25,3 +25,16 @@
 ## Module
 
 Useing `-auto-approve` skip interactive approval of applying.
+
+
+
+## References
+
+* [How To Deploy A LAMP Stack In AWS Using Terraform](https://cloudaffaire.com/how-to-deploy-a-lamp-stack-in-aws-using-terraform/)
+* [Stop manually provisioning AWS for Laravel — use Terraform instead](https://hackernoon.com/stop-manually-provisioning-aws-for-laravel-use-terraform-instead-11b8b360617c)
+* [li0nel/laravel-terraform](https://github.com/li0nel/laravel-terraform/tree/master/terraform)
+* [rossedman/aws-terraform-laravel Archived](https://github.com/rossedman/aws-terraform-laravel/blob/master/terraform/modules/autoscaling/main.tf)
+* [hashicorp/aws documents](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+* []()
+* []()
+* []()
