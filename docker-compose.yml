@@ -9,7 +9,7 @@ services: # cans run worklog post
     entrypoint:
       - terraform
     command: "version"
-    working_dir: "/root/.terraform.d/6.module"
+    working_dir: "/root/.terraform.d/7.outputs"
     volumes:
       - ./:/root/.terraform.d
       - /var/run/docker.sock:/var/run/docker.sock
