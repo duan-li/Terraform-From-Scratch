@@ -27,6 +27,29 @@
 Useing `-auto-approve` skip interactive approval of applying.
 
 
+## Output
+
+Run `terraform output` after `apply`.
+
+
+
+
+## Amazon linux ECS agent
+
+```bash
+#!/bin/bash -x
+# yum update -y
+# yum install epel-release docker amazon-ssm-agent -y
+#!/bin/bash
+amazon-linux-extras install -y ecs docker
+bash -c 'echo "ECS_CLUSTER=cluster-name" >> /etc/ecs/ecs.config'
+usermod -a -G docker ec2-user
+service docker start
+service ecs start
+echo "Done"
+```
+
+
 
 ## References
 
@@ -35,3 +58,9 @@ Useing `-auto-approve` skip interactive approval of applying.
 * [li0nel/laravel-terraform](https://github.com/li0nel/laravel-terraform/tree/master/terraform)
 * [rossedman/aws-terraform-laravel Archived](https://github.com/rossedman/aws-terraform-laravel/blob/master/terraform/modules/autoscaling/main.tf)
 * [hashicorp/aws documents](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+* [arminc/terraform-ecs](https://github.com/arminc/terraform-ecs)
+* [Terraform ECS Example](https://www.metosin.fi/blog/terraform-ecs-example/)
+* [Terraform ECS Example repo FARGATE](https://github.com/metosin/cloud-busting)
+* [Provisioning an AWS ECS cluster using Terraform](https://www.scavasoft.com/terraform-aws-ecs-cluster-provision/)
+* [Provisioning an AWS ECS cluster using Terraform](https://github.com/scavasoft/terraform-aws-ecs-cluster)
+* [ECS examples by Module ECS document](https://registry.terraform.io/modules/terraform-aws-modules/ecs/aws/latest/examples/complete-ecs)
