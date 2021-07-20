@@ -9,7 +9,7 @@ services: # cans run worklog post
     entrypoint:
       - terraform
     command: "version"
-    working_dir: "/root/.terraform.d/8.ecs"
+    working_dir: "/root/.terraform.d/9.eks"
     volumes:
       - ./:/root/.terraform.d
       - /var/run/docker.sock:/var/run/docker.sock
@@ -24,6 +24,41 @@ services: # cans run worklog post
       # - AWS_SECRET_ACCESS_KEY="t2qmtONHRMPDb0DZyzyoN/UcesY+bLPijH0ajIGJ"
       # - AWS_DEFAULT_REGION="ap-southeast-2"
       # - AWS_DEFAULT_REGION="us-west-2"
+
+  eksctl:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: local-tf
+    container_name: eksctl
+    entrypoint:
+      - eksctl
+    command: "version"
+    working_dir: "/root/.terraform.d/9.eks"
+    volumes:
+      - ./:/root/.terraform.d
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./.aws:/root/.aws
+      - ./.kube:/root/.kube
+      - ./.tmp:/tmp
+
+
+  kubectl:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: local-tf
+    container_name: kubectl
+    entrypoint:
+      - kubectl
+    command: "help"
+    working_dir: "/root/.terraform.d/9.eks"
+    volumes:
+      - ./:/root/.terraform.d
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./.aws:/root/.aws
+      - ./.kube:/root/.kube
+      - ./.tmp:/tmp
 
 
   aws:

@@ -50,6 +50,29 @@ echo "Done"
 ```
 
 
+## EKS
+
+```bash
+
+
+eksctl create cluster \
+--name demo \
+--version 1.17 \
+--region us-west-2 \
+--nodegroup-name linux-node-group \
+--node-type t2.micro \
+--nodes 2
+
+
+
+```
+
+
+Video 
+* [eksctl version](https://youtu.be/p6xDCz00TxU?t=508)
+* [eksctl create cluster](https://youtu.be/p6xDCz00TxU?t=554)
+* [Velidate created cluster](https://youtu.be/p6xDCz00TxU?t=780)
+
 
 ## References
 
